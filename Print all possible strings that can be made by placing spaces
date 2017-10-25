@@ -1,0 +1,30 @@
+Given a string you need to print all possible strings that can be made by placing spaces (zero or one) in between them.
+
+Input:  str[] = "ABC"
+Output: ABC
+        AB C
+        A BC
+        A B C
+        
+
+void printPattern(String s) {
+    int length = s.length();
+    
+    char[] buffer = new char[2*length];
+    buffer[0] = s.charAt(0);
+    printPatternHelper(s, buffer, 1, 1, length);
+}
+
+void printPatternHelper(String s, char[] buffer, int i, int j, int length) {
+    if (i == n) {
+        buffer[j] = '\0';
+        System.out.println(buffer);
+        return;
+    }
+    buffer[j] = s.charAt(i);
+    printPatternHelper(s, buffer, i+1, j+1, length);
+    
+    buffer[j] = ' ';
+    buffer[j+1] = s.charAt(i);
+    printPatternHelper(s, buffer, i+1, j+2, length);
+}
