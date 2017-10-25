@@ -1,0 +1,41 @@
+Given an array of distinct elements and a number x, find if there is a pair with product equal to x.
+
+Examples :
+
+Input : arr[] = {10, 20, 9, 40};
+        int x = 400;
+Output : Yes
+
+Input : arr[] = {10, 20, 9, 40};
+        int x = 190;
+Output : No
+
+Input : arr[] = {-10, 20, 9, -40};
+        int x = 400;
+Output : Yes
+
+Input : arr[] = {-10, 20, 9, 40};
+        int x = -400;
+Output : Yes
+
+Input : arr[] = {0, 20, 9, 40};
+        int x = 0;
+Output : Yes
+
+boolean isProduct(int[] a, int x) {
+    HashSet<Integer> hash = new HashSet<>();
+    int n = a.length;
+    if (n < 2) return false;
+    
+    for (int i = 0; i < n; i++) {
+        if (a[i] == 0) {
+            if (x == 0) return true;
+            else continue;
+        }
+        if (x % a[i] == 0) {
+            if (hash.contains(x/a[i]) return true;
+            hash.add(a[i]);
+        }
+    }
+    return false;
+}
