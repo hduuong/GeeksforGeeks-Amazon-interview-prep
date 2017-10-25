@@ -1,0 +1,25 @@
+Given two strings, the task is to find if a string can be obtained by rotating another string two places.
+Examples:
+
+Input : string1 = "amazon" 
+        string2 = "azonam"  // rotated anti-clockwise
+Output : Yes
+
+Input : string1 = "amazon"
+        string2 = "onamaz"  // rotated clockwise
+Output : Yes
+
+
+boolean isRotated (String s1, String s2) {
+    if (s1.length() != s2.length()) return false;
+    
+    String clockwise = "";
+    String anti = "";
+    int len = s1.length();
+    
+    clockwise = s2.substring(len-2) + s2.substring(0, len-2);
+    anti = s2.substring(2) + s2.substring(0,2);
+    
+    return s1.equals(clockwise) || s1.equals(anti);
+    
+}
