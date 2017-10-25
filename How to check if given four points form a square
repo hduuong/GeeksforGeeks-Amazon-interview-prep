@@ -1,0 +1,30 @@
+
+boolean isSquare(Point p1, Point p2, Point p3, Point p4) {
+    double d2 = dist(p1,p2);
+    double d3 = dist(p1,p3);
+    double d4 = dist(p1,p4);
+    
+    if (d2 == d3 && d2*d2*2 == d4*d4) {
+        double h1 = dist(p2,p4);
+        double h2 = dist(p3,p4);
+        return h1 == h2 && h1 == d2;
+    }
+    if (d3 == d4 && d3*d3*2 == d2*d2) {
+        double h1 = dist(p3,p2);
+        double h2 = dist(p4,p2);
+        return h1 == h2 && h1 == d2;
+    }
+    if (d2 == d4 && d2*d2*2 == d3*d3) {
+        double h1 = dist(p2,p3);
+        double h2 = dist(p4,p3);
+        return h1 == h2 && h1 == d2;
+    }
+    return false;
+}
+
+
+double dist(Point p1, Point p2) {
+    double x = p2.x - p1.x;
+    double y = p2.y - p2.y;
+    return Math.sqrt(x*x + y*y);
+}
